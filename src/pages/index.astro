@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import ScrambledText from "../components/ScrambledText.astro"
+import Button from "../components/Button.astro"
 
 
 ---
@@ -11,12 +12,12 @@ import ScrambledText from "../components/ScrambledText.astro"
   description="Portal Web sobre ASIR en el que podrás encontrar todo el contenido que desees."
 >
   <PageHeader />
-  <ScrambledText title="El sitio web donde puedes" words={["aprender", "colaborar"]}/>
+  <ScrambledText title="El sitio web donde puedes"/>
 
   <section class="course-buttons">
     <h3 class="buttons-title">Explorar contenido:</h3>
-    <button class="course-button">1º - Primero</button>
-    <button class="course-button">2º - Segundo</button>
+    <Button text="Primero"/>
+    <Button text="Segundo"/>
   </section>
 
 </Layout>
@@ -41,7 +42,9 @@ import ScrambledText from "../components/ScrambledText.astro"
     font-size: 1.5rem;
     background-color: transparent;
     border: 2px solid white;
+    background-color: #31323b;
     border-radius: 5px;
+    text-transform: uppercase;
 
     transition: scale 0.1s ease-in-out, border 0.1s ease-in-out, background-color 0.1s ease-in-out;
   }
