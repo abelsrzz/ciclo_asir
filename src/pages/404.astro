@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Error">
+    <div>
+        <h2 class="error-title">Ha habido un error</h2>
+        <section>
+            <span id="error">404</span>
+            <span>Not Found</span>
+        </section>
+    </div>
+</Layout>
+<style>
+    *{
+        font-family: var(--techno-font);
+    }
+    .error-title{
+        font-size: 2rem;
+        font-weight: 900;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #error{
+        color: var(--accent-color);
+        font-size: 15rem;
+        opacity: 100%;
+        text-shadow: 0 10px 100px var(--accent-color);
+        animation: 1s blink infinite;
+    }
+    @keyframes blink {
+        50%{
+            opacity: 0%;
+        }
+    }
+</style>
