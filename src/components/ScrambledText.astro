@@ -1,12 +1,12 @@
 ---
 interface Props {
-	title: string;
-	words?: string[];
+  title: string;
+  words?: string[];
 }
 
 const { title } = Astro.props;
-
 ---
+
 <div class="container">
   <span class="welcome-text">{title}</span>
   <div class="text"></div>
@@ -39,7 +39,7 @@ const { title } = Astro.props;
   }
 </style>
 <script>
-    const myArray = [
+  const myArray = [
     "compartir",
     "aprender",
     "colaborar",
@@ -49,7 +49,10 @@ const { title } = Astro.props;
     "practicar",
   ];
   class TextScramble {
-    constructor(el) {
+    el: HTMLElement;
+    chars: string;
+
+    constructor(el: HTMLElement) {
       this.el = el;
       this.chars = "!<>-_\\/[]{}—=+*^?#________";
       this.update = this.update.bind(this);
@@ -103,7 +106,7 @@ const { title } = Astro.props;
   }
   const el = document.querySelector(".text");
 
-  const phrases = myArray
+  const phrases = myArray;
 
   const fx = new TextScramble(el);
 
