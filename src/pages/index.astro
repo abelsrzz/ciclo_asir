@@ -1,10 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/PageHeader.astro";
-import ScrambledText from "../components/ScrambledText.astro"
-import Button from "../components/Button.astro"
+import ScrambledText from "../components/ScrambledText.astro";
+import Button from "../components/Button.astro";
+import PageFooter from "../components/PageFooter.astro";
 
-
+import DatabaseIcon from "../icons/Database.astro";
+import RedesIcon from "../icons/Redes.astro";
+import CodeIcon from "../icons/Code.astro";
+import SystemIcon from "../icons/Sistemas.astro";
+import HardwareIcon from "../icons/Hardware.astro";
+import SecurityIcon from "../icons/Seguridad.astro";
 ---
 
 <Layout
@@ -12,46 +18,75 @@ import Button from "../components/Button.astro"
   description="Portal Web sobre ASIR en el que podrás encontrar todo el contenido que desees."
 >
   <PageHeader />
-  <ScrambledText title="El sitio web donde puedes"/>
+  <ScrambledText title="El sitio web donde puedes" />
 
   <section class="course-buttons">
     <h3 class="buttons-title">Explorar contenido:</h3>
-    <Button text="Primero"/>
-    <Button text="Segundo"/>
+    <Button>Primero</Button>
+    <Button>Segundo</Button>
   </section>
 
+  <section class="subjects">
+    <h3 class="buttons-title">Explorar por asignaturas:</h3>
+    <div class="button-wrapper">
+      <Button>
+        <DatabaseIcon />
+        Bases de datos
+      </Button>
+
+      <Button>
+        <RedesIcon />
+        Redes
+      </Button>
+
+      <Button>
+        <CodeIcon />
+        LM/IAW
+      </Button>
+
+      <Button>
+        <SystemIcon />
+        Sistemas
+      </Button>
+
+      <Button>
+        <HardwareIcon />
+        Hardware
+      </Button>
+
+      <Button>
+        <SecurityIcon />
+        Seguridad
+      </Button>
+    </div>
+    <section></section>
+    <PageFooter />
+  </section>
+
+  <style>
+    .course-buttons,
+    .subjects {
+      margin-top: 50px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .button-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 50%;
+      justify-content: center;
+      gap: 15px;
+      flex-direction: row;
+    }
+
+    .buttons-title,
+    .subjects-title {
+      font-weight: 100;
+    }
+  </style>
 </Layout>
-
-<style>
-  .course-buttons{
-    margin-top: 50px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-  .buttons-title{
-    font-weight: 100;
-  }
-  .course-button{
-    width: 300px;
-    padding: 10px 25px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    background-color: transparent;
-    border: 2px solid white;
-    background-color: #31323b;
-    border-radius: 5px;
-    text-transform: uppercase;
-
-    transition: scale 0.1s ease-in-out, border 0.1s ease-in-out, background-color 0.1s ease-in-out;
-  }
-  .course-button:hover{
-    scale: 110%;
-    background-color: var(--accent-background-color);
-    border-color: var(--accent-color);
-  }
-
-</style>

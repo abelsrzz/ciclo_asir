@@ -1,57 +1,49 @@
----
-interface Props {
-	text: string;
-	icon?: string;
-}
-
-const { text, icon } = Astro.props;
----
-<button class="btn">
-    <span class="text">{text}</span>
+<button class="btn" style="flex-direction: `${flex}`;">
+  <span class="text"><slot/></span>
 </button>
 <style>
-    .btn {
-  border: none;
-  width: 15em;
-  height: 5em;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  background: #24472a;
-  cursor: pointer;
-  transition: background-color .15s ease-in-out,
-  box-shadow .15s ease-in-out,
-  transform .15s ease-in-out;
-  border: 2px solid var(--accent-color);
-  font-family: var(--techno-font);
-  text-transform: uppercase;
-}
+  .btn {
+    user-select: none;
+    border: none;
+    width: 15em;
+    height: 5em;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #24472a;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out,
+      transform 0.15s ease-in-out;
+    border: 2px solid var(--accent-color);
+    font-family: var(--techno-font);
+    text-transform: uppercase;
+  }
+  .text {
+    font-weight: 600;
+    color: #aaaaaa;
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1ch;
+  }
 
-.sparkle {
-  fill: #AAAAAA;
-  transition: all .15s ease;
-}
+  .btn:hover {
+    background: linear-gradient(0deg, #09ff00, #0b7507);
+    box-shadow: 0px 0px 30px 0px #09ff0038;
+    transform: translateY(-2px);
+  }
 
-.text {
-  font-weight: 600;
-  color: #AAAAAA;
-  font-size: medium;
-}
+  .btn:hover .text {
+    color: white;
+  }
 
-.btn:hover {
-  background: linear-gradient(0deg,#09ff00,#024700);
-  box-shadow: 0px 0px 30px 0px #09ff0038;
-  transform: translateY(-2px);
-}
-
-.btn:hover .text {
-  color: white;
-}
-
-.btn:hover .sparkle {
-  fill: white;
-  transform: scale(1.2);
-} 
+  .btn:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+  }
 </style>

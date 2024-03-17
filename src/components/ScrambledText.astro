@@ -2,13 +2,14 @@
 interface Props {
   title: string;
 }
-
 const { title } = Astro.props;
 ---
 
 <!-- 
+
   CodePen from:
   https://codepen.io/dssssewqes/pen/qPmLMr
+
  -->
 <div class="container">
   <div class="pre-text">{title}</div>
@@ -24,14 +25,24 @@ const { title } = Astro.props;
     display: flex;
     gap: 1ch;
     font-size: 28px;
+    user-select: none;
   }
+
+  @media (max-width: 700px) {
+	.container{
+		flex-direction: column;
+	}
+  }
+
   .pre-text {
     font-weight: 100;
   }
+
   .text {
     font-weight: 100;
     color: var(--accent-color);
   }
+  
   .text::after {
     content: ".";
   }
@@ -93,13 +104,14 @@ const { title } = Astro.props;
 
   const phrases = [
     "compartir",
-    "contrubuir",
+    "contribuir",
     "crear",
     "interactuar",
     "aprender",
     "practicar",
     "mejorar",
     "ayudar",
+    "conocer",
   ];
 
   const el = document.querySelector(".text");
@@ -108,7 +120,7 @@ const { title } = Astro.props;
   let counter = 0;
   const next = () => {
     fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 800);
+      setTimeout(next, 1000);
     });
     counter = (counter + 1) % phrases.length;
   };

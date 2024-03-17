@@ -1,0 +1,54 @@
+<footer>
+  <a
+    href="https://github.com/abelsrzz/ciclo_asir"
+    class="tilt-animation"
+    target="_blank">Contribuir</a
+  >
+  <span>©Todos los derechos reservados 2024</span>
+  <a
+    href="https://github.com/abelsrzz/ciclo_asir/issues"
+    class="tilt-animation"
+    target="_blank">Reportar un error</a
+  >
+</footer>
+<style>
+  footer {
+    font-family: var(--techno-font);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+
+    background-color: rgba(255, 255, 255, 0.11);
+    border-top: 2px solid white;
+  }
+  @media (max-width: 700px) {
+	footer{
+    position: static;
+		flex-direction: column;
+        gap: 20px;
+	}
+    span{
+        order: 3;
+    }
+  }
+  span {
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+    font-weight: 100;
+  }
+</style>
