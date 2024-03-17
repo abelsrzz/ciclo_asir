@@ -27,6 +27,7 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+    <div id="console" class="hacker-wrapper"></div>
   </body>
 </html>
 <style is:global>
@@ -46,7 +47,7 @@ const { title, description } = Astro.props;
     font-family: system-ui, sans-serif;
     background-image: var(--dark-background);
     cursor: crosshair;
-	min-height: 100vh;
+    min-height: 100vh;
   }
 
   .tilt-animation {
@@ -83,4 +84,125 @@ const { title, description } = Astro.props;
     color: white;
     text-decoration: none;
   }
+
+  .hacker-wrapper{
+    position: absolute;
+    opacity: .1;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+  }
+  .hacker-background {
+    user-select: none;
+    font-family: "Kode mono";
+    font-weight: bold;
+
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    color: var(--accent-color);
+    text-shadow: 0px 0px 10px var(--accent-color);
+  }
+  @media (max-width: 700px){
+    .hacker-wrapper{
+      display: none;
+    }
+  }
 </style>
+<script type="text/javascript">
+/* 
+CodePen:
+https://codepen.io/FacepalmRobot/pen/dGBKJB
+*/
+  var intervalID = window.setInterval(updateScreen, 200);
+  var c = document.getElementById("console");
+
+  var txt = [
+    "FORCE: XX0022. ENCYPT://000.222.2345",
+    "TRYPASS: ********* AUTH CODE: ALPHA GAMMA: 1___ PRIORITY 1",
+    "RETRY: REINDEER FLOTILLA",
+    "Z:> /FALKEN/GAMES/TICTACTOE/ EXECUTE -PLAYERS 0",
+    "================================================",
+    "Priority 1 // local / scanning...",
+    "scanning ports...",
+    "BACKDOOR FOUND (23.45.23.12.00000000)",
+    "BACKDOOR FOUND (13.66.23.12.00110000)",
+    "BACKDOOR FOUND (13.66.23.12.00110044)",
+    "...",
+    "...",
+    "BRUTE.EXE -r -z",
+    "...locating vulnerabilities...",
+    "...vulnerabilities found...",
+    "MCP/> DEPLOY CLU",
+    "SCAN: __ 0100.0000.0554.0080",
+    "SCAN: __ 0020.0000.0553.0080",
+    "SCAN: __ 0001.0000.0554.0550",
+    "SCAN: __ 0012.0000.0553.0030",
+    "SCAN: __ 0100.0000.0554.0080",
+    "SCAN: __ 0020.0000.0553.0080",
+    "FORCE: XX0022. ENCYPT://000.222.2345",
+    "TRYPASS: ********* AUTH CODE: ALPHA GAMMA: 1___ PRIORITY 1",
+    "RETRY: REINDEER FLOTILLA",
+    "Z:> /FALKEN/GAMES/TICTACTOE/ EXECUTE -PLAYERS 0",
+    "================================================",
+    "Priority 1 // local / scanning...",
+    "scanning ports...",
+    "BACKDOOR FOUND (23.45.23.12.00000000)",
+    "BACKDOOR FOUND (13.66.23.12.00110000)",
+    "BACKDOOR FOUND (13.66.23.12.00110044)",
+    "...",
+    "...",
+    "BRUTE.EXE -r -z",
+    "...locating vulnerabilities...",
+    "...vulnerabilities found...",
+    "MCP/> DEPLOY CLU",
+    "SCAN: __ 0100.0000.0554.0080",
+    "SCAN: __ 0020.0000.0553.0080",
+    "SCAN: __ 0001.0000.0554.0550",
+    "SCAN: __ 0012.0000.0553.0030",
+    "SCAN: __ 0100.0000.0554.0080",
+    "SCAN: __ 0020.0000.0553.0080",
+    "FORCE: XX0022. ENCYPT://000.222.2345",
+    "TRYPASS: ********* AUTH CODE: ALPHA GAMMA: 1___ PRIORITY 1",
+    "RETRY: REINDEER FLOTILLA",
+    "Z:> /FALKEN/GAMES/TICTACTOE/ EXECUTE -PLAYERS 0",
+    "================================================",
+    "Priority 1 // local / scanning...",
+    "scanning ports...",
+    "BACKDOOR FOUND (23.45.23.12.00000000)",
+    "BACKDOOR FOUND (13.66.23.12.00110000)",
+    "BACKDOOR FOUND (13.66.23.12.00110044)",
+    "...",
+    "...",
+    "BRUTE.EXE -r -z",
+    "...locating vulnerabilities...",
+    "...vulnerabilities found...",
+    "MCP/> DEPLOY CLU",
+    "SCAN: __ 0100.0000.0554.0080",
+    "SCAN: __ 0020.0000.0553.0080",
+    "SCAN: __ 0001.0000.0554.0550",
+    "SCAN: __ 0012.0000.0553.0030",
+    "SCAN: __ 0100.0000.0554.0080",
+    "SCAN: __ 0020.0000.0553.0080",
+  ];
+
+  var docfrag = document.createDocumentFragment();
+
+  function updateScreen() {
+    txt.push(txt.shift());
+    txt.forEach(function (e) {
+      var p = document.createElement("p");
+      p.className = "hacker-background"
+      p.textContent = e;
+      docfrag.appendChild(p);
+    });
+    while (c.firstChild) {
+      c.removeChild(c.firstChild);
+    }
+    c.appendChild(docfrag);
+  }
+</script>
