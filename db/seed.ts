@@ -4,13 +4,19 @@ export default async function () {
   await db.insert(File).values([
     {
       id: 1,
-      route: "primero",
+      path: "primero",
       resume: "Todo el contenido de primero",
     },
     { 
         id: 2, 
-        route: "segundo", 
+        path: "segundo", 
         resume: "Todo el contenido de segundo" 
+    },
+    { 
+        id: 3, 
+        path: "/content/primero/bases/tema1/T01_bases_teoria.pdf",
+        subject: "bases",
+        resume: "Teoría Tema 1 (Introducción a las bases de datos)" 
     },
   ]);
 }

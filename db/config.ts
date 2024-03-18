@@ -3,7 +3,7 @@ import { defineTable, defineDb, column, NOW } from 'astro:db';
 const File = defineTable({
   columns: {
     id: column.number({ primaryKey: true }),
-    route: column.text(),
+    path: column.text(),
     subject: column.text({ optional: true }),
     resume: column.text({ optional: true }),
     published: column.date({ default: NOW }),
