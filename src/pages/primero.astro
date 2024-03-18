@@ -2,21 +2,32 @@
 import Layout from "../layouts/Layout.astro";
 import { db, File, like } from "astro:db"
 
-const files = await db.select().from(File);
+const files = await db.select().from(File).where(
+    like(File.route, 'primero%')
+);
 ---
 <Layout title="Primero ASIR">
     <div>
+        <h1>Todo el contenido de primero de ASIR</h1>
         {
             files.map(({ route, subject, resume, published }) => (
               <article>
-                <p>Titulo: {resume}</p>
-                <a href={route}>{resume}</a>
-                <p>Asignatura: {subject}</p>
-                <p>Fecha: {published}</p>
+                <a class="tilt-animation" href={route}>{resume}</a>
               </article>
             ))
         }
     </div>
 </Layout>
 
+<style>
+    div{
+        display: grid;
+        place-content: center;
+    }
+    article{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
