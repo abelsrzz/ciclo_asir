@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { db, File, like } from "astro:db"
+
+const files = await db.select().from(File);
+---
+<Layout title="Primero ASIR">
+    <div>
+        {
+            files.map(({ route, subject, resume, published }) => (
+              <article>
+                <p>Titulo: {resume}</p>
+                <a href={route}>{resume}</a>
+                <p>Asignatura: {subject}</p>
+                <p>Fecha: {published}</p>
+              </article>
+            ))
+        }
+    </div>
+</Layout>
+
+</style>
