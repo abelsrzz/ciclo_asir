@@ -1,4 +1,16 @@
-<button class="btn" style="flex-direction: `${flex}`;">
+---
+
+interface Props {
+  flex?: string;
+  href?: string;
+}
+const { href, flex } = Astro.props;
+const safeFlex = flex ? flex : "column";
+const safeHref = href ? href : "#";
+
+---
+<button class="btn" style={`flex-direction: ${safeFlex};`} onclick={`location.href='${safeHref}';`}>
+
   <span class="text"><slot/></span>
 </button>
 <style>
