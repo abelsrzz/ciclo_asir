@@ -6,7 +6,6 @@ import SelectFilesBySubject from "./SelectFilesBySubject.astro"
 
 interface Props {
     course: string;
-    className?: string;
   }
   const { course } = Astro.props;
 
@@ -14,12 +13,15 @@ const subjects = await db.select().from(Subject).where(
     like(Subject.courseName, `${course}`)
 );
 
-subjects.map
-
 ---
 {
-    subjects.map(({ id }) => (
-        <h1>{id}</h1>
+    subjects.map(({ id, fullName }) => (
+        <h1>{fullName}</h1>
         <SelectFilesBySubject subject=`${id}`/>
     ))
 }
+<style>
+    h1{
+        font-weight: 100;
+    }
+</style>

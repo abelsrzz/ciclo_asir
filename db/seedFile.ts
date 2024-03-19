@@ -1,8 +1,6 @@
 import { File, db } from "astro:db";
 
 await db.insert(File).values([
-   /* 
-   Already remote
    {
         id: 1,
         path: "/content/primero/bases/tema1/T01_bases_teoria.pdf",
@@ -10,5 +8,5 @@ await db.insert(File).values([
         unitName: "01",
         subjectName: "bases",
         courseName: "primero",
-    }, */
+    },
 ]);

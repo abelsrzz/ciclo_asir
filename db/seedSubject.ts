@@ -34,7 +34,7 @@ await db.insert(Subject).values([
   {
     id: "aso",
     fullName: "Administración de Sistemas Operativos",
-    courseName: "primero",
+    courseName: "segundo",
   },
   {
     id: "seguridad",
