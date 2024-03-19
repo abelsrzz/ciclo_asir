@@ -1,22 +1,20 @@
 import { File, db } from "astro:db";
 
-export default async function () {
+export default async function() {
   await db.insert(File).values([
     {
-      id: 1,
-      path: "primero",
-      resume: "Todo el contenido de primero",
+      path: "/content/primero/bases/tema1/T01_bases_teoria.pdf",
+      resume: "Teoría Tema 01 Bases de Datos",
+      subjectName: "bases",
+      unitName: "01",
+      courseName: "primero",
     },
-    { 
-        id: 2, 
-        path: "segundo", 
-        resume: "Todo el contenido de segundo" 
+    {
+      path: "/content/primero/bases/tema1/T01_bases_teoria.pdf",
+      resume: "Teoría Tema 01 Bases de Datos",
+      subjectName: "bases",
+      unitName: "02",
+      courseName: "primero",
     },
-    { 
-        id: 3, 
-        path: "/content/primero/bases/tema1/T01_bases_teoria.pdf",
-        subject: "bases",
-        resume: "Teoría Tema 1 (Introducción a las bases de datos)" 
-    },
-  ]);
+  ])
 }
