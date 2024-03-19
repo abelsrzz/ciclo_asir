@@ -1,0 +1,17 @@
+---
+import { db, File, like } from "astro:db";
+
+interface Props {
+    subject: string;
+  }
+  const { subject } = Astro.props;
+
+const files = await db.select().from(File).where(
+    like(File.subjectName, `${subject}`)
+);
+---
+{
+    files.map(({ path, resume}) => (
+        <a target="_blank" class="file-link" href={path}>{resume}</a>
+    ))
+}

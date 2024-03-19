@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SelectFilesByPath from "../functions/SelectFilesByPath.astro";
+import SelectFilesByCourse from "../functions/SelectFilesByCourse.astro";
 import PageHeader from "../components/PageHeader.astro";
 import PageFooter from "../components/PageFooter.astro";
 ---
@@ -13,7 +13,7 @@ import PageFooter from "../components/PageFooter.astro";
       Todo el contenido de primero de <span class="green-text-title">ASIR</span>
     </h1>
     <div class="files-wrapper">
-      <SelectFilesByPath path="%primero/%" className="file-link" />
+      <SelectFilesByCourse course="primero" className="file-link" />
     </div>
   </div>
 

@@ -9,6 +9,7 @@ const Course = defineTable({
 const Subject = defineTable({
   columns:{
     id: column.text({ primaryKey: true }),
+    fullName: column.text({ optional: false }),
     courseName: column.text({ optional: true , references: () => Course.columns.id }),
   }
 })
