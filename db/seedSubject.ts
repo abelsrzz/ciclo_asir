@@ -22,27 +22,33 @@ await db.insert(Subject).values([
     courseName: "primero",
   },
   {
-    id: "Fundamentos del Hardware",
+    id: "hardware",
+    fullName: "Fundamentos del Hardware",
     courseName: "primero",
   },
   {
-    id: "Servicios de Red e internet",
+    id: "redes2",
+    fullName: "Servicios de Red e internet",
     courseName: "segundo",
   },
   {
-    id: "Administración de Sistemas Operativos",
+    id: "aso",
+    fullName: "Administración de Sistemas Operativos",
     courseName: "primero",
   },
   {
-    id: "Seguridad y Alta Disponibilidad",
+    id: "seguridad",
+    fullName: "Seguridad y Alta Disponibilidad",
     courseName: "segundo",
   },
   {
-    id: "Implantación de Aplicaciones Web",
-    courseName: "primero",
+    id: "iaw",
+    fullName: "Implantación de Aplicaciones Web",
+    courseName: "segundo",
   },
   {
-    id: "Administración de Sistemas Gestores de Bases de Datos",
-    courseName: "primero",
+    id: "bases2",
+    fullName: "Administración de Sistemas Gestores de Bases de Datos",
+    courseName: "segundo",
   },
 ]);
