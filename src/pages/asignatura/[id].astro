@@ -1,48 +1,24 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-
-import { COURSES } from "../../consts/courses";
 import { SUBJECTS } from "../../consts/subjects";
-
-
 export function getStaticPaths() {
-  return COURSES.map(({ id }) => {
+  return SUBJECTS.map(({ id }) => {
     return { params: { id } }
   });
 }
 
-
 const { id } = Astro.params
 
-const [course] = COURSES.filter((course) => course.id === id)
 
-let subjectsData = new Array();
-
-course.subjectIds.forEach((actualSubject) =>{
-    const [subject] = SUBJECTS.filter((subject) => subject.id === actualSubject)
-    const { id, name, courseId, courseName } = subject;
-    const subjectObj = {
-        id,
-        name,
-        courseId,
-        courseName
-    };
-    subjectsData.push(subjectObj);
-}) 
+const [subject] = SUBJECTS.filter((subject) => subject.id === id)
 
 ---
-
-<Layout title={`${course.name}`}>
-
+<Layout title=`${subject.name}`>
   <div class="files-page-wrapper">
     <h1 class="files-title">
-      Todo el contenido de {course.name}
+      Todo el contenido de {subject.name}
     </h1>
-      {
-        subjectsData.map(({ id, name }) => (
-            <a class="file-link" href={`/asignatura/${id}`}>{name}</a>
-        ))
-    }
+      ...
   </div>
 </Layout>
 
