@@ -1,22 +1,18 @@
 ---
-import DatabaseIcon from "../icons/Database.astro";
-import RedesIcon from "../icons/Redes.astro";
-import CodeIcon from "../icons/Code.astro";
-import SystemIcon from "../icons/Sistemas.astro";
-import HardwareIcon from "../icons/Hardware.astro";
-import SecurityIcon from "../icons/Seguridad.astro";
 
 interface Props {
   flex?: string;
   href?: string;
+  icon?: string;
 }
-const { href, flex } = Astro.props;
+const { href, flex, icon } = Astro.props;
 const safeFlex = flex ? flex : "row";
 const safeHref = href ? href : "#";
 
+
 ---
 <button class="btn" style={`flex-direction: ${safeFlex};`} onclick={`location.href='${safeHref}';`}>
-
+  <!-- <img src=`/src/icons/${icon}.svg` class="buton-icons"> -->
   <span class="text"><slot/></span>
 </button>
 <style>
