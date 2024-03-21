@@ -61,7 +61,7 @@ export const SUBJECTS: Subject[] = [
 		courseName: "Segundo de ASIR",
 	},
 	{
-        id: "tfc",
+        id: "fct",
         name: "Trabajo de Fin de Ciclo",
 		courseId: "segundo",
 		courseName: "Segundo de ASIR",
