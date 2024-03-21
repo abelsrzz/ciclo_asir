@@ -40,7 +40,7 @@ course.subjectIds.forEach((actualSubject) => {
       <div class="button-wrapper">
         {
           subjectsData.map(({ id, name }) => (
-            <Button href={`/asignatura/${id}`}>{name}</Button>
+            <Button href={`/asignatura/${id}`}>{id}</Button>
           ))
         }
       </div>
