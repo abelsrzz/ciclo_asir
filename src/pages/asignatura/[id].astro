@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { SUBJECTS } from "../../consts/subjects";
+import { FILES } from "../../consts/files";
+
 export function getStaticPaths() {
   return SUBJECTS.map(({ id }) => {
     return { params: { id } }
@@ -12,13 +14,39 @@ const { id } = Astro.params
 
 const [subject] = SUBJECTS.filter((subject) => subject.id === id)
 
+
+
+let filesData = new Array()
+
+subject.files.forEach((actualFile) =>{
+    const [file] = FILES.filter((file) => file.title === actualFile)
+    const { title, subjectId, course, unit, ext, resume } = file;
+    const fileObj = {
+      title,
+      subjectId,
+      course,
+      unit,
+      ext,
+      resume,
+    }
+    filesData.push(fileObj)
+})
+
+
+
 ---
 <Layout title=`${subject.name}`>
   <div class="files-page-wrapper">
     <h1 class="files-title">
       Todo el contenido de {subject.name}
     </h1>
-      Proximamente
+      {
+        filesData.map(({title, subjectId, course, unit, ext, resume}) =>(
+          <h3 class="file">
+            <a title={resume} target="_blank" class="file-link" href={`/content/${course}/${subjectId}/${unit}/${title}.${ext}`}>{title}</a>            
+          </h3>
+        ))
+      }
   </div>
 </Layout>
 
@@ -68,5 +96,16 @@ const [subject] = SUBJECTS.filter((subject) => subject.id === id)
 
   .file-link:hover::before {
     transform: scaleX(1);
+  }
+  .file{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 15px;
+    align-items: center;
+  }
+  .file-unit{
+    font-weight: 100;
+    font-size: 1rem;
   }
 </style>
