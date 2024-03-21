@@ -1,53 +1,77 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/Button.astro";
 
 import { COURSES } from "../../consts/courses";
 import { SUBJECTS } from "../../consts/subjects";
 
-
 export function getStaticPaths() {
   return COURSES.map(({ id }) => {
-    return { params: { id } }
+    return { params: { id } };
   });
 }
 
+const { id } = Astro.params;
 
-const { id } = Astro.params
-
-const [course] = COURSES.filter((course) => course.id === id)
+const [course] = COURSES.filter((course) => course.id === id);
 
 let subjectsData = new Array();
 
-course.subjectIds.forEach((actualSubject) =>{
-    const [subject] = SUBJECTS.filter((subject) => subject.id === actualSubject)
-    const { id, name, courseId, courseName } = subject;
-    const subjectObj = {
-        id,
-        name,
-        courseId,
-        courseName
-    };
-    subjectsData.push(subjectObj);
-}) 
-
+course.subjectIds.forEach((actualSubject) => {
+  const [subject] = SUBJECTS.filter((subject) => subject.id === actualSubject);
+  const { id, name, courseId, courseName } = subject;
+  const subjectObj = {
+    id,
+    name,
+    courseId,
+    courseName,
+  };
+  subjectsData.push(subjectObj);
+});
 ---
 
 <Layout title={`${course.name}`}>
-
   <div class="files-page-wrapper">
     <h1 class="files-title">
       Todo el contenido de {course.name}
     </h1>
-      {
-        subjectsData.map(({ id, name }) => (
-            <a class="file-link" href={`/asignatura/${id}`}>{name}</a>
-        ))
-    }
+    <section class="course-buttons">
+      <h3 class="buttons-title">Explorar contenido:</h3>
+      <div class="button-wrapper">
+        {
+          subjectsData.map(({ id, name }) => (
+            <Button href={`/asignatura/${id}`}>{name}</Button>
+          ))
+        }
+      </div>
+    </section>
   </div>
 </Layout>
 
-
 <style is:global>
+  .course-buttons {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+    justify-content: center;
+    gap: 15px;
+    flex-direction: row;
+  }
+
+  .buttons-title {
+    font-weight: 100;
+  }
   .files-page-wrapper,
   .files-wrapper {
     display: flex;
