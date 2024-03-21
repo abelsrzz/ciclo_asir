@@ -11,4 +11,5 @@ export interface Subject {
 	name: string
     courseId: CourseId
     courseName: CourseName
+	files: string[]
 }
